@@ -22,19 +22,13 @@ app.use("/api/notification", notificationRoutes);
 // -----------------------------------------------------------------------------
 
 const __dirname$ = path.resolve();
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname$, "/client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname$, "client", "build", "index.html"));
+i
+// First route
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Hello from Apex Chat App server",
   });
-} else {
-  // First route
-  app.get("/", (req, res) => {
-    res.status(200).json({
-      message: "Hello from DE-Link Chat App server",
-    });
-  });
-}
+});
 
 // -----------------------------------------------------------------------------
 
